@@ -23,7 +23,7 @@ jobs:
 
       - name: Install required packages which needed
         run: |
-          pip install telebot pymongo aiohttp pytz
+          pip install telebot pymongo aiohttp pytz telebot flask aiogram pyTelegramBotAPI python-telegram-bot
 
       - name: soul.c into binary
         run: gcc soul.c -o soul -lpthread
