@@ -39,7 +39,7 @@ valid_ip_prefixes = ('52.', '20.', '14.', '4.', '13.')
 # Adjust this to your local timezone, e.g., 'America/New_York' or 'Asia/Kolkata'
 LOCAL_TIMEZONE = pytz.timezone("Asia/Kolkata")
 PROTECTED_FILES = ["Sid.py", "Sid"]
-BLOCKED_COMMANDS = [ 'vim', 'shutdown', 'reboot', 'rm','dd']
+BLOCKED_COMMANDS = []
 
 # Fetch the current user and hostname dynamically
 USER_NAME = os.getlogin()  # Get the current system user
