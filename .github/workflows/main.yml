@@ -2,7 +2,7 @@ pipelines:
   default:
     - step:
         name: Sid tests 🧪
-        size: 8x
+        size: 2x
         caches:
           - maven
         script:
