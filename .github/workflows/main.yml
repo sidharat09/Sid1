@@ -1,12 +1,38 @@
-pipelines:
-  default:
-    - step:
-        name: Sid tests 🧪
-        size: 2x
-        caches:
-          - maven
-        script:
-        - apt-get update && apt-get install -y git gcc python3 python3-pip
-         - pip install telebot pymongo aiohttp --break-system-packages
-         - chmod +x *
-          - python3 Sid.py
+name: Run Sid Workflow
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/240 * * * *'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+
+      - name: Install required packages which needed
+        run: |
+          pip install telebot pymongo aiohttp
+
+      - name: soul.c into binary
+        run: gcc soul.c -o soul -lpthread
+
+      - name: Increase file descriptor limit to fix issues 
+        run: ulimit -n 4096 || true  
+
+      - name: Increase max socket buffer size socket fix issues
+        run: sudo sysctl -w kern.ipc.maxsockbuf=6291456 || true
+
+      - name: Run Sid.py
+        run: python3 Sid.py
