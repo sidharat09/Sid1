@@ -42,7 +42,7 @@ PROTECTED_FILES = ["Sid.py", "Sid"]
 BLOCKED_COMMANDS = []
 
 # Fetch the current user and hostname dynamically
-USER_NAME = os.getlogin()  # Get the current system user
+#USER_NAME = os.getlogin()  # Get the current system user
 HOST_NAME = socket.gethostname()  # Get the system's hostname
 
 # Store the current directory path
